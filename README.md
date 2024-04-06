@@ -1,2 +1,17 @@
 # prostosmena.ru
-Онлайн расчет графика работы 2/2. График смен.
+Онлайн расчет графика работы 2/2. [График смен.](https://prostosmena.ru)
+
+## Как работать по графику 2/2?
+Рабочий график 2/2 предполагает цикличность рабочих дней и выходных. Работник трудится два дня, после чего следуют два дня отдыха. Такой ритм позволяет эффективно планировать личное время, уделять внимание семье и хобби. Для тех, кто стремится максимально эффективно распределить свой рабочий график, наш сервис предлагает удобный инструмент, позволяющий рассчитать график 2/2 онлайн.
+
+```twig
+{% if status == 'work1' or status == 'work2' %}                                                                                                                                                                                                                                                                           
+ 52 {% set display_status = 'work' %}                                                                                                                                                                                                                                                                                         
+ 53 {% else %}                                                                                                                                                                                                                                                                                                                
+ 54 {% set display_status = status %}                                                                                                                                                                                                                                                                                         
+ 55 {% endif %}                                                                                                                                                                                                                                                                                                               
+ 56 │                                                                                                                                                                                                                                                                                                                         
+ 57 │ <div class="day {{ display_status }}{% if is_today %} today{% endif %}{% if passed %} passed_day{% endif %}{% if weekend %} weekend{% endif %}{% if holiday %} holiday{% endif %}{% if (holiday or weekend) and display_status == 'work' %} mix{% endif %}{% if show_type|default %} {{ show_type }}{% endif %}" title="    {{ title }}">                                                                                                                                                                                                                                                                                                             
+ 58 │ │           │ {{ day.value }}                                                                                                                                                                                                                                                                                           
+ 59 │ │           │ │ </div>
+```
